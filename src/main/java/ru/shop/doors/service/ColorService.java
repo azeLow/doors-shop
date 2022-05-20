@@ -1,8 +1,10 @@
 package ru.shop.doors.service;
 
+import org.springframework.stereotype.Service;
 import ru.shop.doors.model.Color;
 import ru.shop.doors.repository.ColorRepository;
 
+@Service
 public class ColorService {
 
     private final ColorRepository colorRepository;
@@ -17,4 +19,21 @@ public class ColorService {
         color.setDeleted(false);
         colorRepository.save(color);
     }
+
+    public Color getColorByName(String name) {
+        Color color = colorRepository.getByName(name);
+        return color;
+    }
+
+    public Color getColorById(Long id) {
+        Color color = colorRepository.getById(id);
+        return color;
+    }
+
+
+    public void deleteColor(Long id) {
+        Color color = colorRepository.getById(id);
+        color.setDeleted(true);
+        colorRepository.save(color);
+   }
 }
