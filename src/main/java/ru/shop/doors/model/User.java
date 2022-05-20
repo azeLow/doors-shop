@@ -1,7 +1,10 @@
 package ru.shop.doors.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Entity
 @Table(name = "s_user", schema = "public")
 public class User {
