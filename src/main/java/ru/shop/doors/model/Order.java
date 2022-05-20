@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "pg_order", schema = "public")
+@Table(name = "s_order", schema = "public")
 public class Order {
 
     @Id

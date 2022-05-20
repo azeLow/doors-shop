@@ -5,8 +5,8 @@ import ru.shop.doors.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    User findUserById(Long id);
+    User getById(Long id);
 }
-// ZOV
+
 
 

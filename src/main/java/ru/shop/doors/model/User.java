@@ -3,7 +3,7 @@ package ru.shop.doors.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "pg_user", schema = "public")
+@Table(name = "s_user", schema = "public")
 public class User {
 
     @Id

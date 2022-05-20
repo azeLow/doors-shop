@@ -1,8 +1,10 @@
 package ru.shop.doors.service;
 
+import org.springframework.stereotype.Service;
 import ru.shop.doors.model.User;
 import ru.shop.doors.repository.UserRepository;
 
+@Service
 public class UserService {
 
     private final UserRepository userRepository;
@@ -20,4 +22,14 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public User getUserById(Long id) {
+        User user = userRepository.getById(id);
+        return user;
+    }
+
+    public void deleteUser(Long id){
+        User user = userRepository.getById(id);
+        user.setDeleted(true);
+        userRepository.save(user);
+    }
 }
