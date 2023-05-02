@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.*;
 import ru.shop.doors.model.Door;
 import ru.shop.doors.service.DoorService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 public class DoorController {
 
@@ -22,7 +25,7 @@ public class DoorController {
         doorService.createDoor(doorFromFronted);
     }
 
-    @GetMapping(value = "/door/get")
+    @GetMapping(value = "/createDoor/get")
     public Door getDoorById(@RequestParam Long id){
         return doorService.getDoorById(id);
     }
@@ -30,5 +33,30 @@ public class DoorController {
     @DeleteMapping(value = "/door/delete/{id}")
     public void delete(@PathVariable Long id){
         doorService.deleteDoor(id);
+    }
+
+    @GetMapping(value = "/door/all")
+    public List<Door> findAll(){
+        return doorService.findAll();
+    }
+
+    @GetMapping(value = "/door/correlation")
+    public double getCorrelation(@RequestParam String param) {
+        return doorService.spearmanCorrelation(param);
+    }
+
+    @GetMapping(value = "/door/distanceBetweenValues")
+    public double[][] distanceBetweenValues(@RequestParam String param) {
+        return doorService.distanceBetweenValues(param);
+    }
+
+    @GetMapping(value = "/door/getSimilar")
+    public ArrayList<Door> similarDoors(@RequestParam int id, @RequestParam int value){
+        return (ArrayList<Door>) doorService.getSimilar(id, value);
+    }
+
+    @GetMapping(value = "/door/distanceBetweenDoors")
+    public double[] distanceBetweenDoors(@RequestParam long id) {
+        return doorService.distanceBetweenDoors(id);
     }
 }

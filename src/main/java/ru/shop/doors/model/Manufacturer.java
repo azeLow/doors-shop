@@ -3,6 +3,7 @@ package ru.shop.doors.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Entity
@@ -107,5 +108,9 @@ public class Manufacturer {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public BigDecimal subtract(Manufacturer manufacturer) {
+        return null;
     }
 }

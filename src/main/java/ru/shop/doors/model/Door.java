@@ -113,4 +113,8 @@ public class Door {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    public String getProperty(String param) {
+        return null;
+    }
 }
